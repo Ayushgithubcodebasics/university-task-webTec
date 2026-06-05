@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Web Technology Practical Exam - SET B - Ayush Butoliya</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; background: #eef2f7; color: #1c2530; line-height: 1.5; }
+  header { background: linear-gradient(135deg, #1e3a5f, #2b6cb0); color: #fff; padding: 24px 20px; text-align: center; }
+  header h1 { font-size: 24px; letter-spacing: .5px; }
+  header p { margin-top: 6px; font-size: 14px; opacity: .9; }
+  .wrap { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+  /* Profile card */
+  .profile { background: #fff; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,.08); padding: 24px; margin-bottom: 26px; display: flex; gap: 22px; align-items: center; flex-wrap: wrap; }
+  .avatar { width: 96px; height: 96px; border-radius: 50%; background: linear-gradient(135deg,#2b6cb0,#1e3a5f); color:#fff; display:flex; align-items:center; justify-content:center; font-size:36px; font-weight:700; flex-shrink:0; }
+  .profile h2 { color:#1e3a5f; margin-bottom:6px; }
+  .profile ul { list-style:none; font-size:14px; color:#445; }
+  .profile li { margin:3px 0; }
+  .profile li b { color:#1e3a5f; }
+
+  /* Task list grid */
+  .tasklist { background:#fff; border-radius:12px; box-shadow:0 6px 20px rgba(0,0,0,.08); padding:22px; margin-bottom:30px; }
+  .tasklist h2 { color:#1e3a5f; margin-bottom:14px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:10px; }
+  .grid a { display:block; text-decoration:none; background:#2b6cb0; color:#fff; padding:10px 8px; border-radius:8px; font-size:13px; text-align:center; transition:.15s; }
+  .grid a:hover { background:#1e3a5f; transform:translateY(-2px); }
+
+  /* Task sections */
+  .task { background:#fff; border-radius:12px; box-shadow:0 4px 14px rgba(0,0,0,.07); padding:22px; margin-bottom:22px; scroll-margin-top:16px; }
+  .task .desc { background:#eaf3fb; border-left:5px solid #2b6cb0; padding:12px 14px; border-radius:6px; margin-bottom:14px; }
+  .task .desc .no { display:inline-block; background:#2b6cb0; color:#fff; width:30px; height:30px; line-height:30px; text-align:center; border-radius:50%; font-weight:700; margin-right:10px; }
+  .task .desc b { font-size:16px; color:#1e3a5f; }
+  .exec { background:#f7f9fc; border:1px dashed #c5d4e3; border-radius:8px; padding:16px; }
+  .exec label { display:block; font-size:13px; font-weight:600; margin:8px 0 4px; color:#334; }
+  input, select, textarea { padding:8px 10px; border:1px solid #b8c6d6; border-radius:6px; font-size:14px; width:100%; max-width:320px; }
+  button { background:#2b6cb0; color:#fff; border:none; padding:9px 16px; border-radius:6px; font-size:14px; cursor:pointer; margin:8px 6px 0 0; transition:.15s; }
+  button:hover { background:#1e3a5f; }
+  .out { margin-top:12px; padding:12px; background:#fff; border:1px solid #d8e2ee; border-radius:6px; min-height:20px; font-size:14px; white-space:pre-wrap; word-break:break-word; }
+  .out:empty::before { content:"Result appears here..."; color:#9aa7b5; }
+  table { border-collapse:collapse; margin-top:8px; width:100%; max-width:420px; }
+  th, td { border:1px solid #c5d4e3; padding:8px 10px; text-align:left; font-size:14px; }
+  th { background:#eaf3fb; color:#1e3a5f; }
+  .top { display:block; text-align:right; font-size:12px; margin-top:8px; }
+  .top a { color:#2b6cb0; text-decoration:none; }
+  footer { text-align:center; padding:20px; color:#667; font-size:13px; }
+  /* Code block shown for each task */
+  .codewrap { margin-bottom:14px; }
+  .codewrap .codelbl { font-size:12px; font-weight:700; color:#1e3a5f; text-transform:uppercase; letter-spacing:.5px; margin-bottom:4px; }
+  pre.code { background:#1e2733; color:#e6edf3; padding:14px 16px; border-radius:8px; overflow-x:auto; font-family:Consolas,'Courier New',monospace; font-size:13px; line-height:1.45; margin:0; white-space:pre; }
+  /* Task 30 hover demo */
+  #hoverBtn { background:#2b6cb0; transition:.25s; }
+  #hoverBtn:hover { background:#e53e3e; transform:scale(1.1); letter-spacing:2px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>WEB TECHNOLOGY — PRACTICAL EXAM (SET B)</h1>
+  <p>Ayush Butoliya &nbsp;|&nbsp; Date: 05/06/2026 &nbsp;|&nbsp; Subject: Web Technology</p>
+</header>
+
+<div class="wrap">
+
+  <!-- ===================== PROFILE PAGE ===================== -->
+  <section class="profile" id="profile">
+    <div class="avatar">AB</div>
+    <div>
+      <h2>Ayush Butoliya</h2>
+      <ul>
+        <li><b>Student Name:</b> Ayush Butoliya</li>
+        <li><b>Subject:</b> Web Technology</li>
+        <li><b>Date:</b> 05/06/2026</li>
+        <li><b>Course:</b> BSc Information Systems</li>
+        <li><b>About me:</b> Web technology student. This site is built with pure HTML, CSS and JavaScript and implements all 30 tasks of SET B.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===================== TASK LIST PAGE ===================== -->
+  <section class="tasklist">
+    <div class="grid">
+      <a href="#t1">1. Reverse words</a>
+      <a href="#t2">2. First & last char</a>
+      <a href="#t3">3. Longest word</a>
+      <a href="#t4">4. Title Case</a>
+      <a href="#t5">5. Replace word</a>
+      <a href="#t6">6. Count vowels</a>
+      <a href="#t7">7. Array from popup</a>
+      <a href="#t8">8. Third element</a>
+      <a href="#t9">9. Last element (popup)</a>
+      <a href="#t10">10. Index of element</a>
+      <a href="#t11">11. map() square</a>
+      <a href="#t12">12. Sort ascending</a>
+      <a href="#t13">13. Splice replace</a>
+      <a href="#t14">14. Splice del+insert</a>
+      <a href="#t15">15. Arithmetic choice</a>
+      <a href="#t16">16. Factorial</a>
+      <a href="#t17">17. Even/Odd</a>
+      <a href="#t18">18. Max of 3</a>
+      <a href="#t19">19. Sum of array</a>
+      <a href="#t20">20. 10-digit popup</a>
+      <a href="#t21">21. Numeric vs string</a>
+      <a href="#t22">22. Password length</a>
+      <a href="#t23">23. Required field</a>
+      <a href="#t24">24. Signup form</a>
+      <a href="#t25">25. Output in table</a>
+      <a href="#t26">26. Clear on reset</a>
+      <a href="#t27">27. Update age</a>
+      <a href="#t28">28. Object after update</a>
+      <a href="#t29">29. Countdown timer</a>
+      <a href="#t30">30. Hover event</a>
+    </div>
+  </section>
+
+  <!-- ===================== TASKS ===================== -->
+
+  <!-- Task 1 -->
+  <section class="task" id="t1">
+    <div class="desc"><span class="no">1</span><b>Reverse words in a sentence.</b></div>
+    <div class="codewrap">
+      <div class="codelbl">Code</div>
+      <pre class="code">function t1run(){
+  const s = document.getElementById(&#x27;t1in&#x27;).value;
+  const reversed = s.trim().split(/\s+/).reverse().join(&#x27; &#x27;);
+  show(&#x27;t1out&#x27;, &#x27;Reversed words: &#x27; + reversed);
+}</pre>
+    </div>
+    <div class="exec">
+      <label>Enter a sentence</label>
+      <input id="t1in" value="JavaScript is really fun">
+      <button onclick="t1run()">Reverse Words</button>
+      <div class="out" id="t1out"></div>
+    </div>
+    <span class="top"><a href="#profile">↑ Back to top</a></span>
+  </section>
+
+  <!-- Task 2 -->
+  <section class="task" id="t2">
+    <div class="desc"><span class="no">2</span><b>Extract first and last character from a string.</b></div>
+    <div class="codewrap">
+      <div class="codelbl">Code</div>
+      <pre class="code">function t2run(){
+  const s = document.getElementById(&#x27;t2in&#x27;).value;
+  if(s.length === 0){ show(&#x27;t2out&#x27;,&#x27;Please enter a string.&#x27;); return; }
+  show(&#x27;t2out&#x27;, &#x27;First character: &#x27; + s[0] +
+       &#x27;\nLast character: &#x27; + s[s.length-1]);
+}</pre>
+    </div>
+    <div class="exec">
+      <label>Enter a string</label>
+      <input id="t2in" value="Butoliya">
+      <button onclick="t2run()">Extract</button>
+      <div class="out" id="t2out"></div>
+    </div>
+    <span class="top"><a href="#profile">↑ Back to top</a></span>
+  </section>
+
+  <!-- Task 3 -->
+  <section class="task" id="t3">
+    <div class="desc"><span class="no">3</span><b>Find longest word from sentence.</b></div>
+    <div class="codewrap">
+      <div class="codelbl">Code</div>
+      <pre class="code">function t3run(){
+  const words = document.getElementById(&#x27;t3in&#x27;).value.trim().split(/\s+/);
+  let longest = &#x27;&#x27;;
+  for(const w of words){ if(w.length &gt; longest.length) longest = w; }
+  show(&#x27;t3out&#x27;, &#x27;Longest word: &#x27; + longest +
+       &#x27; (&#x27; + longest.length + &#x27; characters)&#x27;);
+}</pre>
+    </div>
+    <div class="exec">
+      <label>Enter a sentence</label>
+      <input id="t3in" value="Web technology examination practical">
+      <button onclick="t3run()">Find Longest</button>
+      <div class="out" id="t3out"></div>
+    </div>
+    <span class="top"><a href="#profile">↑ Back to top</a></span>
+  </section>
+
+  <!-- Task 4 -->
+  <section class="task" id="t4">
+    <div class="desc"><span class="no">4</span><b>Convert string to Title Case.</b></div>
+    <div class="codewrap">
+      <div class="codelbl">Code</div>
+      <pre class="code">function t4run(){
+  const s = document.getElementById(&#x27;t4in&#x27;).value.toLowerCase();
+  const title = s.replace(/\b\w/g, c =&gt; c.toUpperCase());
+  show(&#x27;t4out&#x27;, &#x27;Title Case: &#x27; + title);
+}</pre>
+    </div>
+    <div class="exec">
+      <label>Enter a sentence</label>
+      <input id="t4in" value="ayush butoliya web technology">
+      <button onclick="t4run()">To Title Case</button>
+      <div class="out" id="t4out"></div>
+    </div>
+    <span class="top"><a href="#profile">↑ Back to top</a></span>
+  </section>
+
+  <!-- Task 5 -->
+  <section class="task" id="t5">
+    <div class="desc"><span class="no">5</span><b>Replace a word in a string.</b></div>
+    <div class="codewrap">
+      <div class="codelbl">Code</div>
+      <pre class="code">function t5run(){
+  const s = document.getElementById(&#x27;t5in&#x27;).value;
+  const f = document.getElementById(&#x27;t5find&#x27;).value;
+  const r = document.getElementById(&#x27;t5rep&#x27;).value;
+  show(&#x27;t5out&#x27;, &#x27;Result: &#x27; + s.split(f).join(r));
+}</pre>
+    </div>
+    <div class="exec">
+      <label>Sentence</label>
+      <input id="t5in" value="I love HTML">
+      <label>Word to find</label>
+      <input id="t5find" value="HTML">
+      <label>Replace with</label>
+      <input id="t5rep" value="JavaScript">
+      <button onclick="t5run()">Replace</button>
+      <div class="out" id="t5out"></div>
+    </div>
+    <span class="top"><a href="#profile">↑ Back to top</a></span>
+  </section>
+
+  <!-- Task 6 -->
+  <section class="task" id="t6">
+    <div class="desc"><span class="no">6</span><b>Count vowels in a string.</b></div>
+    <div class="codewrap">
+      <div class="codelbl">Code</div>
+      <pre class="code">function t6run(){
+  const s = document.getElementById(&#x27;t6in&#x27;).value;
+  const m = s.match(/[aeiou]/gi);
+  const count = m ? m.length : 0;
+  show(&#x27;t6out&#x27;, &#x27;Vowel count: &#x27; + count +
+       (m ? &#x27;  (&#x27; + m.join(&#x27;, &#x27;) + &#x27;)&#x27; : &#x27;&#x27;));
+}</pre>
+    </div>
+    <div class="exec">
+      <label>Enter a string</label>
+      <input id="t6in" value="Education">
+      <button onclick="t6run()">Count Vowels</button>
+      <div class="out" id="t6out"></div>
+    </div>
+    <span class="top"><a href="#profile">↑ Back to top</a></span>
+  </section>
+
+  <!-- Task 7 -->
+  <section class="task" id="t7">
+    <div class="desc"><span class="no">7</span><b>Create an array from user popup input.</b></div>
+    <div class="codewrap">
+      <div class="codelbl">Code</div>
+      <pre class="code">function t7run(){
+  const input = prompt(&#x27;Enter values separated by commas:&#x27;, &#x27;red,green,blue&#x27;);
+  if(input === null){ show(&#x27;t7out&#x27;,&#x27;Cancelled.&#x27;); return; }
+  const arr = input.split(&#x27;,&#x27;).map(x =&gt; x.trim());
+  show(&#x27;t7out&#x27;, &#x27;Array created: [&#x27; + arr.join(&#x27;, &#x27;) + &#x27;]&#x27; +
+       &#x27;\nLength: &#x27; + arr.length);
+}</pre>
+    </div>
+    <div class="exec">
+      <p style="font-size:13px;color:#556">Click the button — a popup will ask for comma-separated values.</p>
+      <button onclick="t7run()">Create Array (popup)</button>
+      <div class="out" id="t7out"></div>
+    </div>
+    <span class="top"><a href="#profile">↑ Back to top</a></span>
+  </section>
+
+  <!-- Task 8 -->
+  <section class="task" id="t8">
+    <div class="desc"><span class="no">8</span><b>Display third element from array.</b></div>
+    <div class="codewrap">
+      <div class="codelbl">Code</div>
+      <pre class="code">function t8run(){
+  const fruits = [&quot;Apple&quot;,&quot;Mango&quot;,&quot;Banana&quot;,&quot;Cherry&quot;,&quot;Grapes&quot;];
+  show(&#x27;t8out&#x27;, &#x27;Third element (index 2): &#x27; + fruits[2]);
+}</pre>
+    </div>
+    <div class="exec">
+      <p style="font-size:13px;color:#556">Array used: ["Apple","Mango","Banana","Cherry","Grapes"]</p>
+      <button onclick="t8run()">Show 3rd Element</button>
+      <div class="out" id="t8out"></div>
+    </div>
+    <span class="top"><a href="#profile">↑ Back to top</a></span>
+  </section>
+
+  <!-- Task 9 -->
+  <section class="task" id="t9">
+    <div class="desc"><span class="no">9</span><b>Find last element from array (popup).</b></div>
+    <div class="codewrap">
+      <div class="codelbl">Code</div>
+      <pre class="code">function t9run(){
+  const input = prompt(&#x27;Enter values separated by commas:&#x27;, &#x27;10,20,30,40&#x27;);
+  if(input === null){ show(&#x27;t9out&#x27;,&#x27;Cancelled.&#x27;); return; }
+  const arr = input.split(&#x27;,&#x27;).map(x =&gt; x.trim());
+  show(&#x27;t9out&#x27;, &#x27;Array: [&#x27; + arr.join(&#x27;, &#x27;) + &#x27;]&#x27; +
+       &#x27;\nLast element: &#x27; + arr[arr.length-1]);
+}</pre>
+    </div>
+    <div class="exec">
+      <p style="font-size:13px;color:#556">Popup asks for comma-separated values, then shows the last element.</p>
+      <button onclick="t9run()">Find Last (popup)</button>
+      <div class="out" id="t9out"></div>
+    </div>
+    <span class="top"><a href="#profile">↑ Back to top</a></span>
+  </section>
+
+  <!-- Task 10 -->
+  <section class="task" id="t10">
+    <div class="desc"><span class="no">10</span><b>Find index of a given element in array.</b></div>
+    <div class="codewrap">
+      <div class="codelbl">Code</div>
+      <pre class="code">function t10run(){
+  const arr = [10,20,30,40,50];
+  const target = Number(document.getElementById(&#x27;t10in&#x27;).value);
+  const idx = arr.indexOf(target);
+  show(&#x27;t10out&#x27;, idx === -1 ? target + &#x27; not found in array.&#x27;
+                            : &#x27;Index of &#x27; + target + &#x27; is: &#x27; + idx);
+}</pre>
+    </div>
+    <div class="exec">
+      <p style="font-size:13px;color:#556">Array used: [10, 20, 30, 40, 50]</p>
+      <label>Element to search</label>
+      <input id="t10in" value="30">
+      <button onclick="t10run()">Find Index</button>
+      <div class="out" id="t10out"></div>
+    </div>
+    <span class="top"><a href="#profile">↑ Back to top</a></span>
+  </section>
+
+  <!-- Task 11 -->
+  <section class="task" id="t11">
+    <div class="desc"><span class="no">11</span><b>Apply map() to square each element.</b></div>
+    <div class="codewrap">
+      <div class="codelbl">Code</div>
+      <pre class="code">function t11run(){
+  const arr = document.getElementById(&#x27;t11in&#x27;).value.split(&#x27;,&#x27;).map(Number);
+  const squared = arr.map(x =&gt; x * x);
+  show(&#x27;t11out&#x27;, &#x27;Original: [&#x27; + arr.join(&#x27;, &#x27;) + &#x27;]&#x27; +
+       &#x27;\nSquared:  [&#x27; + squared.join(&#x27;, &#x27;) + &#x27;]&#x27;);
+}</pre>
+    </div>
+    <div class="exec">
+      <label>Numbers (comma separated)</label>
+      <input id="t11in" value="1,2,3,4,5">
+      <button onclick="t11run()">Square with map()</button>
+      <div class="out" id="t11out"></div>
+    </div>
+    <span class="top"><a href="#profile">↑ Back to top</a></span>
+  </section>
+
+  <!-- Task 12 -->
+  <section class="task" id="t12">
+    <div class="desc"><span class="no">12</span><b>Sort array in ascending order.</b></div>
+    <div class="codewrap">
+      <div class="codelbl">Code</div>
+      <pre class="code">function t12run(){
+  const arr = document.getElementById(&#x27;t12in&#x27;).value.split(&#x27;,&#x27;).map(Number);
+  const sorted = [...arr].sort((a,b) =&gt; a - b);
+  show(&#x27;t12out&#x27;, &#x27;Original: [&#x27; + arr.join(&#x27;, &#x27;) + &#x27;]&#x27; +
+       &#x27;\nSorted:   [&#x27; + sorted.join(&#x27;, &#x27;) + &#x27;]&#x27;);
+}</pre>
+    </div>
+    <div class="exec">
+      <label>Numbers (comma separated)</label>
+      <input id="t12in" value="42,7,19,3,88,11">
+      <button onclick="t12run()">Sort Ascending</button>
+      <div class="out" id="t12out"></div>
+    </div>
+    <span class="top"><a href="#profile">↑ Back to top</a></span>
+  </section>
+
+  <!-- Task 13 -->
+  <section class="task" id="t13">
+    <div class="desc"><span class="no">13</span><b>Use splice to replace elements.</b></div>
+    <div class="codewrap">
+      <div class="codelbl">Code</div>
+      <pre class="code">function t13run(){
+  let arr = [&quot;Red&quot;,&quot;Green&quot;,&quot;Blue&quot;,&quot;Yellow&quot;];
+  const before = [...arr];
+  arr.splice(1, 2, &quot;Black&quot;, &quot;White&quot;);   // replace 2 elements at index 1
+  show(&#x27;t13out&#x27;, &#x27;Before: [&#x27; + before.join(&#x27;, &#x27;) + &#x27;]&#x27; +
+       &#x27;\nAfter:  [&#x27; + arr.join(&#x27;, &#x27;) + &#x27;]&#x27;);
+}</pre>
+    </div>
+    <div class="exec">
+      <p style="font-size:13px;color:#556">Array: ["Red","Green","Blue","Yellow"] → replace index 1 & 2 with "Black","White".</p>
+      <button onclick="t13run()">Splice Replace</button>
+      <div class="out" id="t13out"></div>
+    </div>
+    <span class="top"><a href="#profile">↑ Back to top</a></span>
+  </section>
+
+  <!-- Task 14 -->
+  <section class="task" id="t14">
+    <div class="desc"><span class="no">14</span><b>Use splice to delete + insert simultaneously.</b></div>
+    <div class="codewrap">
+      <div class="codelbl">Code</div>
+      <pre class="code">function t14run(){
+  let arr = [1,2,3,4,5];
+  const before = [...arr];
+  const removed = arr.splice(1, 2, 99, 100); // delete 2 at idx 1, insert 99,100
+  show(&#x27;t14out&#x27;, &#x27;Before:  [&#x27; + before.join(&#x27;, &#x27;) + &#x27;]&#x27; +
+       &#x27;\nRemoved: [&#x27; + removed.join(&#x27;, &#x27;) + &#x27;]&#x27; +
+       &#x27;\nAfter:   [&#x27; + arr.join(&#x27;, &#x27;) + &#x27;]&#x27;);
+}</pre>
+    </div>
+    <div class="exec">
+      <p style="font-size:13px;color:#556">Array: [1,2,3,4,5] → at index 1, delete 2 items and insert 99,100.</p>
+      <button onclick="t14run()">Splice Delete+Insert</button>
+      <div class="out" id="t14out"></div>
+    </div>
+    <span class="top"><a href="#profile">↑ Back to top</a></span>
+  </section>
+
+  <!-- Task 15 -->
+  <section class="task" id="t15">
+    <div class="desc"><span class="no">15</span><b>Function: arithmetic operations based on user choice.</b></div>
+    <div class="codewrap">
+      <div class="codelbl">Code</div>
+      <pre class="code">function arithmetic(a, b, op){
+  switch(op){
+    case &#x27;+&#x27;: return a + b;
+    case &#x27;-&#x27;: return a - b;
+    case &#x27;*&#x27;: return a * b;
+    case &#x27;/&#x27;: return b === 0 ? &#x27;Error: divide by zero&#x27; : a / b;
+  }
+}
+function t15run(){
+  const a = Number(document.getElementById(&#x27;t15a&#x27;).value);
+  const b = Number(document.getElementById(&#x27;t15b&#x27;).value);
+  const op = document.getElementById(&#x27;t15op&#x27;).value;
+  show(&#x27;t15out&#x27;, a + &#x27; &#x27; + op + &#x27; &#x27; + b + &#x27; = &#x27; + arithmetic(a,b,op));
+}</pre>
+    </div>
+    <div class="exec">
+      <label>First number</label><input id="t15a" value="12">
+      <label>Second number</label><input id="t15b" value="4">
+      <label>Operation</label>
+      <select id="t15op">
+        <option value="+">Addition (+)</option>
+        <option value="-">Subtraction (−)</option>
+        <option value="*">Multiplication (×)</option>
+        <option value="/">Division (÷)</option>
+      </select>
+      <button onclick="t15run()">Calculate</button>
+      <div class="out" id="t15out"></div>
+    </div>
+    <span class="top"><a href="#profile">↑ Back to top</a></span>
+  </section>
+
+  <!-- Task 16 -->
+  <section class="task" id="t16">
+    <div class="desc"><span class="no">16</span><b>Function: calculate factorial.</b></div>
+    <div class="codewrap">
+      <div class="codelbl">Code</div>
+      <pre class="code">function factorial(n){
+  if(n &lt; 0) return &#x27;Undefined for negatives&#x27;;
+  let r = 1;
+  for(let i = 2; i &lt;= n; i++) r *= i;
+  return r;
+}
+function t16run(){
+  const n = Number(document.getElementById(&#x27;t16in&#x27;).value);
+  show(&#x27;t16out&#x27;, &#x27;Factorial of &#x27; + n + &#x27; = &#x27; + factorial(n));
+}</pre>
+    </div>
+    <div class="exec">
+      <label>Enter a number</label>
+      <input id="t16in" value="5">
+      <button onclick="t16run()">Factorial</button>
+      <div class="out" id="t16out"></div>
+    </div>
+    <span class="top"><a href="#profile">↑ Back to top</a></span>
+  </section>
+
+  <!-- Task 17 -->
+  <section class="task" id="t17">
+    <div class="desc"><span class="no">17</span><b>Function: check even/odd.</b></div>
+    <div class="codewrap">
+      <div class="codelbl">Code</div>
+      <pre class="code">function t17run(){
+  const n = Number(document.getElementById(&#x27;t17in&#x27;).value);
+  show(&#x27;t17out&#x27;, n + &#x27; is &#x27; + (n % 2 === 0 ? &#x27;EVEN&#x27; : &#x27;ODD&#x27;));
+}</pre>
+    </div>
+    <div class="exec">
+      <label>Enter a number</label>
+      <input id="t17in" value="7">
+      <button onclick="t17run()">Check Even/Odd</button>
+      <div class="out" id="t17out"></div>
+    </div>
+    <span class="top"><a href="#profile">↑ Back to top</a></span>
+  </section>
+
+  <!-- Task 18 -->
+  <section class="task" id="t18">
+    <div class="desc"><span class="no">18</span><b>Function: find max of 3 numbers.</b></div>
+    <div class="codewrap">
+      <div class="codelbl">Code</div>
+      <pre class="code">function t18run(){
+  const a = Number(document.getElementById(&#x27;t18a&#x27;).value);
+  const b = Number(document.getElementById(&#x27;t18b&#x27;).value);
+  const c = Number(document.getElementById(&#x27;t18c&#x27;).value);
+  show(&#x27;t18out&#x27;, &#x27;Maximum of (&#x27; + a + &#x27;, &#x27; + b + &#x27;, &#x27; + c + &#x27;) = &#x27; +
+       Math.max(a,b,c));
+}</pre>
+    </div>
+    <div class="exec">
+      <label>Number 1</label><input id="t18a" value="15">
+      <label>Number 2</label><input id="t18b" value="42">
+      <label>Number 3</label><input id="t18c" value="29">
+      <button onclick="t18run()">Find Max</button>
+      <div class="out" id="t18out"></div>
+    </div>
+    <span class="top"><a href="#profile">↑ Back to top</a></span>
+  </section>
+
+  <!-- Task 19 -->
+  <section class="task" id="t19">
+    <div class="desc"><span class="no">19</span><b>Function: sum of array values.</b></div>
+    <div class="codewrap">
+      <div class="codelbl">Code</div>
+      <pre class="code">function t19run(){
+  const arr = document.getElementById(&#x27;t19in&#x27;).value.split(&#x27;,&#x27;).map(Number);
+  const sum = arr.reduce((acc, x) =&gt; acc + x, 0);
+  show(&#x27;t19out&#x27;, &#x27;Array: [&#x27; + arr.join(&#x27;, &#x27;) + &#x27;]\nSum = &#x27; + sum);
+}</pre>
+    </div>
+    <div class="exec">
+      <label>Numbers (comma separated)</label>
+      <input id="t19in" value="10,20,30,40,50">
+      <button onclick="t19run()">Sum Array</button>
+      <div class="out" id="t19out"></div>
+    </div>
+    <span class="top"><a href="#profile">↑ Back to top</a></span>
+  </section>
+
+  <!-- Task 20 -->
+  <section class="task" id="t20">
+    <div class="desc"><span class="no">20</span><b>Popup: allow only 10 digits input.</b></div>
+    <div class="codewrap">
+      <div class="codelbl">Code</div>
+      <pre class="code">function t20run(){
+  const v = prompt(&#x27;Enter a 10-digit mobile number:&#x27;, &#x27;&#x27;);
+  if(v === null){ show(&#x27;t20out&#x27;,&#x27;Cancelled.&#x27;); return; }
+  if(/^\d{10}$/.test(v)){
+    show(&#x27;t20out&#x27;, &#x27;Valid 10-digit number: &#x27; + v);
+  } else {
+    show(&#x27;t20out&#x27;, &#x27;Invalid! Must be exactly 10 digits &#x27; +
+         &#x27;(you entered &#x27; + v.length + &#x27; characters).&#x27;);
+  }
+}</pre>
+    </div>
+    <div class="exec">
+      <p style="font-size:13px;color:#556">Popup accepts a mobile number; only exactly 10 digits are valid.</p>
+      <button onclick="t20run()">Enter Mobile (popup)</button>
+      <div class="out" id="t20out"></div>
+    </div>
+    <span class="top"><a href="#profile">↑ Back to top</a></span>
+  </section>
+
+  <!-- Task 21 -->
+  <section class="task" id="t21">
+    <div class="desc"><span class="no">21</span><b>Popup: detect numeric vs string and apply allowed operations.</b></div>
+    <div class="codewrap">
+      <div class="codelbl">Code</div>
+      <pre class="code">function t21run(){
+  const x = prompt(&#x27;Enter first value:&#x27;, &#x27;10&#x27;);
+  if(x === null){ show(&#x27;t21out&#x27;,&#x27;Cancelled.&#x27;); return; }
+  const y = prompt(&#x27;Enter second value:&#x27;, &#x27;20&#x27;);
+  if(y === null){ show(&#x27;t21out&#x27;,&#x27;Cancelled.&#x27;); return; }
+  const xNum = x.trim() !== &#x27;&#x27; &amp;&amp; !isNaN(x);
+  const yNum = y.trim() !== &#x27;&#x27; &amp;&amp; !isNaN(y);
+  let result;
+  if(xNum &amp;&amp; yNum){
+    result = &#x27;Both numeric -&gt; addition: &#x27; + x + &#x27; + &#x27; + y +
+             &#x27; = &#x27; + (Number(x) + Number(y));
+  } else if(!xNum &amp;&amp; !yNum){
+    result = &#x27;Both strings -&gt; concatenation: &quot;&#x27; + x + &#x27;&quot; + &quot;&#x27; + y +
+             &#x27;&quot; = &quot;&#x27; + (x + y) + &#x27;&quot;&#x27;;
+  } else {
+    result = &#x27;Mixed types -&gt; no common operation applied.&#x27;;
+  }
+  show(&#x27;t21out&#x27;, result);
+}</pre>
+    </div>
+    <div class="exec">
+      <p style="font-size:13px;color:#556">Two popup inputs. If both numeric → add them. If both strings → concatenate. Mixed → reports mixed.</p>
+      <button onclick="t21run()">Enter Two Values (popup)</button>
+      <div class="out" id="t21out"></div>
+    </div>
+    <span class="top"><a href="#profile">↑ Back to top</a></span>
+  </section>
+
+  <!-- Task 22 -->
+  <section class="task" id="t22">
+    <div class="desc"><span class="no">22</span><b>Validate: password min length rule.</b></div>
+    <div class="codewrap">
+      <div class="codelbl">Code</div>
+      <pre class="code">function t22run(){
+  const p = document.getElementById(&#x27;t22in&#x27;).value;
+  const MIN = 8;
+  show(&#x27;t22out&#x27;, p.length &gt;= MIN
+    ? &#x27;Valid password (length &#x27; + p.length + &#x27;).&#x27;
+    : &#x27;Too short! Minimum &#x27; + MIN + &#x27; characters required &#x27; +
+      &#x27;(you entered &#x27; + p.length + &#x27;).&#x27;);
+}</pre>
+    </div>
+    <div class="exec">
+      <label>Enter password (min 8 characters)</label>
+      <input type="password" id="t22in" value="">
+      <button onclick="t22run()">Validate Password</button>
+      <div class="out" id="t22out"></div>
+    </div>
+    <span class="top"><a href="#profile">↑ Back to top</a></span>
+  </section>
+
+  <!-- Task 23 -->
+  <section class="task" id="t23">
+    <div class="desc"><span class="no">23</span><b>Validate: required field not empty.</b></div>
+    <div class="codewrap">
+      <div class="codelbl">Code</div>
+      <pre class="code">function t23run(){
+  const v = document.getElementById(&#x27;t23in&#x27;).value.trim();
+  show(&#x27;t23out&#x27;, v === &#x27;&#x27;
+    ? &#x27;Error: this field is required and cannot be empty.&#x27;
+    : &#x27;OK - value accepted: &#x27; + v);
+}</pre>
+    </div>
+    <div class="exec">
+      <label>Enter your name (required)</label>
+      <input id="t23in" value="">
+      <button onclick="t23run()">Validate Required</button>
+      <div class="out" id="t23out"></div>
+    </div>
+    <span class="top"><a href="#profile">↑ Back to top</a></span>
+  </section>
+
+  <!-- Task 24 -->
+  <section class="task" id="t24">
+    <div class="desc"><span class="no">24</span><b>Signup form with submit/reset.</b></div>
+    <div class="codewrap">
+      <div class="codelbl">Code</div>
+      <pre class="code">function t24submit(){
+  const n = document.getElementById(&#x27;t24name&#x27;).value.trim();
+  const e = document.getElementById(&#x27;t24email&#x27;).value.trim();
+  const p = document.getElementById(&#x27;t24pass&#x27;).value;
+  if(!n || !e || !p){ show(&#x27;t24out&#x27;,&#x27;All fields are required.&#x27;); return; }
+  show(&#x27;t24out&#x27;, &#x27;Signup successful!\nName: &#x27; + n +
+       &#x27;\nEmail: &#x27; + e + &#x27;\nPassword length: &#x27; + p.length);
+}
+function t24reset(){
+  document.getElementById(&#x27;t24name&#x27;).value = &#x27;&#x27;;
+  document.getElementById(&#x27;t24email&#x27;).value = &#x27;&#x27;;
+  document.getElementById(&#x27;t24pass&#x27;).value = &#x27;&#x27;;
+  show(&#x27;t24out&#x27;, &#x27;Form reset.&#x27;);
+}</pre>
+    </div>
+    <div class="exec">
+      <label>Name</label><input id="t24name" value="">
+      <label>Email</label><input id="t24email" value="">
+      <label>Password</label><input type="password" id="t24pass" value="">
+      <button onclick="t24submit()">Submit</button>
+      <button onclick="t24reset()" style="background:#718096">Reset</button>
+      <div class="out" id="t24out"></div>
+    </div>
+    <span class="top"><a href="#profile">↑ Back to top</a></span>
+  </section>
+
+  <!-- Task 25 -->
+  <section class="task" id="t25">
+    <div class="desc"><span class="no">25</span><b>Display form output in a table format.</b></div>
+    <div class="codewrap">
+      <div class="codelbl">Code</div>
+      <pre class="code">function t25run(){
+  const n  = document.getElementById(&#x27;t25name&#x27;).value;
+  const c  = document.getElementById(&#x27;t25city&#x27;).value;
+  const co = document.getElementById(&#x27;t25course&#x27;).value;
+  document.getElementById(&#x27;t25out&#x27;).innerHTML =
+    &#x27;&lt;table&gt;&lt;tr&gt;&lt;th&gt;Field&lt;/th&gt;&lt;th&gt;Value&lt;/th&gt;&lt;/tr&gt;&#x27; +
+    &#x27;&lt;tr&gt;&lt;td&gt;Name&lt;/td&gt;&lt;td&gt;&#x27;   + n  + &#x27;&lt;/td&gt;&lt;/tr&gt;&#x27; +
+    &#x27;&lt;tr&gt;&lt;td&gt;City&lt;/td&gt;&lt;td&gt;&#x27;   + c  + &#x27;&lt;/td&gt;&lt;/tr&gt;&#x27; +
+    &#x27;&lt;tr&gt;&lt;td&gt;Course&lt;/td&gt;&lt;td&gt;&#x27; + co + &#x27;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&#x27;;
+}</pre>
+    </div>
+    <div class="exec">
+      <label>Full Name</label><input id="t25name" value="Ayush Butoliya">
+      <label>City</label><input id="t25city" value="Riga">
+      <label>Course</label><input id="t25course" value="Information Systems">
+      <button onclick="t25run()">Show in Table</button>
+      <div class="out" id="t25out"></div>
+    </div>
+    <span class="top"><a href="#profile">↑ Back to top</a></span>
+  </section>
+
+  <!-- Task 26 -->
+  <section class="task" id="t26">
+    <div class="desc"><span class="no">26</span><b>Clear output on reset.</b></div>
+    <div class="codewrap">
+      <div class="codelbl">Code</div>
+      <pre class="code">function t26show(){
+  show(&#x27;t26out&#x27;, &#x27;You typed: &#x27; + document.getElementById(&#x27;t26in&#x27;).value);
+}
+function t26reset(){
+  document.getElementById(&#x27;t26in&#x27;).value = &#x27;&#x27;;
+  document.getElementById(&#x27;t26out&#x27;).textContent = &#x27;&#x27;;   // output cleared
+}</pre>
+    </div>
+    <div class="exec">
+      <label>Type anything</label>
+      <input id="t26in" value="Hello World">
+      <button onclick="t26show()">Show Output</button>
+      <button onclick="t26reset()" style="background:#718096">Reset (clear output)</button>
+      <div class="out" id="t26out"></div>
+    </div>
+    <span class="top"><a href="#profile">↑ Back to top</a></span>
+  </section>
+
+  <!-- Task 27 -->
+  <section class="task" id="t27">
+    <div class="desc"><span class="no">27</span><b>Create person object and update age using input.</b></div>
+    <div class="codewrap">
+      <div class="codelbl">Code</div>
+      <pre class="code">let person = { name: &quot;Ayush&quot;, age: 22, gender: &quot;Male&quot; };
+function t27run(){
+  const newAge = Number(document.getElementById(&#x27;t27in&#x27;).value);
+  person.age = newAge;
+  show(&#x27;t27out&#x27;, &#x27;Age updated. Person is now: &#x27; + JSON.stringify(person));
+}</pre>
+    </div>
+    <div class="exec">
+      <p style="font-size:13px;color:#556">Person object: { name:"Ayush", age:22, gender:"Male" }</p>
+      <label>New age</label>
+      <input id="t27in" value="25">
+      <button onclick="t27run()">Update Age</button>
+      <div class="out" id="t27out"></div>
+    </div>
+    <span class="top"><a href="#profile">↑ Back to top</a></span>
+  </section>
+
+  <!-- Task 28 -->
+  <section class="task" id="t28">
+    <div class="desc"><span class="no">28</span><b>Display object after update.</b></div>
+    <div class="codewrap">
+      <div class="codelbl">Code</div>
+      <pre class="code">function t28run(){
+  show(&#x27;t28out&#x27;,
+    &#x27;Person object:\n&#x27; +
+    &#x27;Name   : &#x27; + person.name + &#x27;\n&#x27; +
+    &#x27;Age    : &#x27; + person.age + &#x27;\n&#x27; +
+    &#x27;Gender : &#x27; + person.gender);
+}</pre>
+    </div>
+    <div class="exec">
+      <p style="font-size:13px;color:#556">Shows the person object (uses the updated age from Task 27 if changed).</p>
+      <button onclick="t28run()">Display Object</button>
+      <div class="out" id="t28out"></div>
+    </div>
+    <span class="top"><a href="#profile">↑ Back to top</a></span>
+  </section>
+
+  <!-- Task 29 -->
+  <section class="task" id="t29">
+    <div class="desc"><span class="no">29</span><b>Countdown timer using setInterval with Start/Pause/Reset.</b></div>
+    <div class="codewrap">
+      <div class="codelbl">Code</div>
+      <pre class="code">let t29timer = null, t29count = 30;
+function t29render(){ document.getElementById(&#x27;t29out&#x27;).textContent = t29count; }
+function t29start(){
+  if(t29timer) return;                       // already running
+  if(t29count &lt;= 0)
+    t29count = Number(document.getElementById(&#x27;t29in&#x27;).value) || 30;
+  t29timer = setInterval(() =&gt; {
+    t29count--;
+    t29render();
+    if(t29count &lt;= 0){
+      clearInterval(t29timer); t29timer = null;
+      document.getElementById(&#x27;t29out&#x27;).textContent = &quot;Time&#x27;s up!&quot;;
+    }
+  }, 1000);
+}
+function t29pause(){ clearInterval(t29timer); t29timer = null; }  // value kept
+function t29reset(){
+  clearInterval(t29timer); t29timer = null;
+  t29count = Number(document.getElementById(&#x27;t29in&#x27;).value) || 30;
+  t29render();
+}</pre>
+    </div>
+    <div class="exec">
+      <label>Countdown from (seconds)</label>
+      <input id="t29in" value="30">
+      <div class="out" id="t29out" style="font-size:30px;text-align:center;font-weight:700;color:#1e3a5f">30</div>
+      <button onclick="t29start()">Start</button>
+      <button onclick="t29pause()" style="background:#d69e2e">Pause</button>
+      <button onclick="t29reset()" style="background:#718096">Reset</button>
+    </div>
+    <span class="top"><a href="#profile">↑ Back to top</a></span>
+  </section>
+
+  <!-- Task 30 -->
+  <section class="task" id="t30">
+    <div class="desc"><span class="no">30</span><b>Hover event: change button style on mouse over.</b></div>
+    <div class="codewrap">
+      <div class="codelbl">Code</div>
+      <pre class="code">/* CSS */
+#hoverBtn { background:#2b6cb0; transition:.25s; }
+#hoverBtn:hover { background:#e53e3e; transform:scale(1.1); letter-spacing:2px; }
+
+/* JS event handlers */
+function t30over(){
+  document.getElementById(&#x27;t30out&#x27;).textContent =
+    &#x27;Mouse IS over the button - style changed!&#x27;;
+}
+function t30out(){
+  document.getElementById(&#x27;t30out&#x27;).textContent =
+    &#x27;Mouse is NOT over the button.&#x27;;
+}</pre>
+    </div>
+    <div class="exec">
+      <p style="font-size:13px;color:#556">Hover over the button — its color, size and spacing change (CSS :hover + JS mouseover/mouseout event handlers update the text).</p>
+      <button id="hoverBtn"
+        onmouseover="t30over()" onmouseout="t30out()">Hover over me</button>
+      <div class="out" id="t30out">Mouse is NOT over the button.</div>
+    </div>
+    <span class="top"><a href="#profile">↑ Back to top</a></span>
+  </section>
+
+</div>
+
+<footer>Ayush Butoliya — Web Technology Practical Exam — SET B — All 30 tasks implemented.</footer>
+
+<script>
+/* ============ Helper ============ */
+function show(id, msg){ document.getElementById(id).textContent = msg; }
+
+/* Task 1 — Reverse words in a sentence */
+function t1run(){
+  const s = document.getElementById('t1in').value;
+  const reversed = s.trim().split(/\s+/).reverse().join(' ');
+  show('t1out', 'Reversed words: ' + reversed);
+}
+
+/* Task 2 — First and last character */
+function t2run(){
+  const s = document.getElementById('t2in').value;
+  if(s.length === 0){ show('t2out','Please enter a string.'); return; }
+  show('t2out', 'First character: ' + s[0] + '\nLast character: ' + s[s.length-1]);
+}
+
+/* Task 3 — Longest word */
+function t3run(){
+  const words = document.getElementById('t3in').value.trim().split(/\s+/);
+  let longest = '';
+  for(const w of words){ if(w.length > longest.length) longest = w; }
+  show('t3out', 'Longest word: ' + longest + ' (' + longest.length + ' characters)');
+}
+
+/* Task 4 — Title Case */
+function t4run(){
+  const s = document.getElementById('t4in').value.toLowerCase();
+  const title = s.replace(/\b\w/g, c => c.toUpperCase());
+  show('t4out', 'Title Case: ' + title);
+}
+
+/* Task 5 — Replace a word */
+function t5run(){
+  const s = document.getElementById('t5in').value;
+  const f = document.getElementById('t5find').value;
+  const r = document.getElementById('t5rep').value;
+  show('t5out', 'Result: ' + s.split(f).join(r));
+}
+
+/* Task 6 — Count vowels */
+function t6run(){
+  const s = document.getElementById('t6in').value;
+  const m = s.match(/[aeiou]/gi);
+  const count = m ? m.length : 0;
+  show('t6out', 'Vowel count: ' + count + (m ? '  (' + m.join(', ') + ')' : ''));
+}
+
+/* Task 7 — Array from popup input */
+function t7run(){
+  const input = prompt('Enter values separated by commas:', 'red,green,blue');
+  if(input === null){ show('t7out','Cancelled.'); return; }
+  const arr = input.split(',').map(x => x.trim());
+  show('t7out', 'Array created: [' + arr.join(', ') + ']\nLength: ' + arr.length);
+}
+
+/* Task 8 — Third element */
+function t8run(){
+  const fruits = ["Apple","Mango","Banana","Cherry","Grapes"];
+  show('t8out', 'Third element (index 2): ' + fruits[2]);
+}
+
+/* Task 9 — Last element from array (popup) */
+function t9run(){
+  const input = prompt('Enter values separated by commas:', '10,20,30,40');
+  if(input === null){ show('t9out','Cancelled.'); return; }
+  const arr = input.split(',').map(x => x.trim());
+  show('t9out', 'Array: [' + arr.join(', ') + ']\nLast element: ' + arr[arr.length-1]);
+}
+
+/* Task 10 — Index of element */
+function t10run(){
+  const arr = [10,20,30,40,50];
+  const target = Number(document.getElementById('t10in').value);
+  const idx = arr.indexOf(target);
+  show('t10out', idx === -1 ? target + ' not found in array.' : 'Index of ' + target + ' is: ' + idx);
+}
+
+/* Task 11 — map() square */
+function t11run(){
+  const arr = document.getElementById('t11in').value.split(',').map(Number);
+  const squared = arr.map(x => x * x);
+  show('t11out', 'Original: [' + arr.join(', ') + ']\nSquared:  [' + squared.join(', ') + ']');
+}
+
+/* Task 12 — Sort ascending */
+function t12run(){
+  const arr = document.getElementById('t12in').value.split(',').map(Number);
+  const sorted = [...arr].sort((a,b) => a - b);
+  show('t12out', 'Original: [' + arr.join(', ') + ']\nSorted:   [' + sorted.join(', ') + ']');
+}
+
+/* Task 13 — Splice replace */
+function t13run(){
+  let arr = ["Red","Green","Blue","Yellow"];
+  const before = [...arr];
+  arr.splice(1, 2, "Black", "White");   // replace 2 elements at index 1
+  show('t13out', 'Before: [' + before.join(', ') + ']\nAfter:  [' + arr.join(', ') + ']');
+}
+
+/* Task 14 — Splice delete + insert */
+function t14run(){
+  let arr = [1,2,3,4,5];
+  const before = [...arr];
+  const removed = arr.splice(1, 2, 99, 100); // delete 2 at index 1, insert 99,100
+  show('t14out', 'Before:  [' + before.join(', ') + ']\nRemoved: [' + removed.join(', ') + ']\nAfter:   [' + arr.join(', ') + ']');
+}
+
+/* Task 15 — Arithmetic based on user choice */
+function arithmetic(a, b, op){
+  switch(op){
+    case '+': return a + b;
+    case '-': return a - b;
+    case '*': return a * b;
+    case '/': return b === 0 ? 'Error: divide by zero' : a / b;
+  }
+}
+function t15run(){
+  const a = Number(document.getElementById('t15a').value);
+  const b = Number(document.getElementById('t15b').value);
+  const op = document.getElementById('t15op').value;
+  show('t15out', a + ' ' + op + ' ' + b + ' = ' + arithmetic(a,b,op));
+}
+
+/* Task 16 — Factorial */
+function factorial(n){
+  if(n < 0) return 'Undefined for negatives';
+  let r = 1;
+  for(let i = 2; i <= n; i++) r *= i;
+  return r;
+}
+function t16run(){
+  const n = Number(document.getElementById('t16in').value);
+  show('t16out', 'Factorial of ' + n + ' = ' + factorial(n));
+}
+
+/* Task 17 — Even/Odd */
+function t17run(){
+  const n = Number(document.getElementById('t17in').value);
+  show('t17out', n + ' is ' + (n % 2 === 0 ? 'EVEN' : 'ODD'));
+}
+
+/* Task 18 — Max of 3 */
+function t18run(){
+  const a = Number(document.getElementById('t18a').value);
+  const b = Number(document.getElementById('t18b').value);
+  const c = Number(document.getElementById('t18c').value);
+  show('t18out', 'Maximum of (' + a + ', ' + b + ', ' + c + ') = ' + Math.max(a,b,c));
+}
+
+/* Task 19 — Sum of array */
+function t19run(){
+  const arr = document.getElementById('t19in').value.split(',').map(Number);
+  const sum = arr.reduce((acc, x) => acc + x, 0);
+  show('t19out', 'Array: [' + arr.join(', ') + ']\nSum = ' + sum);
+}
+
+/* Task 20 — Popup 10 digits only */
+function t20run(){
+  const v = prompt('Enter a 10-digit mobile number:', '');
+  if(v === null){ show('t20out','Cancelled.'); return; }
+  if(/^\d{10}$/.test(v)){
+    show('t20out', 'Valid 10-digit number: ' + v);
+  } else {
+    show('t20out', 'Invalid! Must be exactly 10 digits (you entered ' + v.length + ' characters).');
+  }
+}
+
+/* Task 21 — Numeric vs string detection */
+function t21run(){
+  const x = prompt('Enter first value:', '10');
+  if(x === null){ show('t21out','Cancelled.'); return; }
+  const y = prompt('Enter second value:', '20');
+  if(y === null){ show('t21out','Cancelled.'); return; }
+  const xNum = x.trim() !== '' && !isNaN(x);
+  const yNum = y.trim() !== '' && !isNaN(y);
+  let result;
+  if(xNum && yNum){
+    result = 'Both numeric → addition: ' + x + ' + ' + y + ' = ' + (Number(x) + Number(y));
+  } else if(!xNum && !yNum){
+    result = 'Both strings → concatenation: "' + x + '" + "' + y + '" = "' + (x + y) + '"';
+  } else {
+    result = 'Mixed types (one numeric, one string) → no common operation applied.';
+  }
+  show('t21out', result);
+}
+
+/* Task 22 — Password min length */
+function t22run(){
+  const p = document.getElementById('t22in').value;
+  const MIN = 8;
+  show('t22out', p.length >= MIN
+    ? 'Valid password (length ' + p.length + ').'
+    : 'Too short! Minimum ' + MIN + ' characters required (you entered ' + p.length + ').');
+}
+
+/* Task 23 — Required field not empty */
+function t23run(){
+  const v = document.getElementById('t23in').value.trim();
+  show('t23out', v === '' ? 'Error: this field is required and cannot be empty.' : 'OK — value accepted: ' + v);
+}
+
+/* Task 24 — Signup form submit/reset */
+function t24submit(){
+  const n = document.getElementById('t24name').value.trim();
+  const e = document.getElementById('t24email').value.trim();
+  const p = document.getElementById('t24pass').value;
+  if(!n || !e || !p){ show('t24out','All fields are required.'); return; }
+  show('t24out', 'Signup successful!\nName: ' + n + '\nEmail: ' + e + '\nPassword length: ' + p.length);
+}
+function t24reset(){
+  document.getElementById('t24name').value = '';
+  document.getElementById('t24email').value = '';
+  document.getElementById('t24pass').value = '';
+  show('t24out', 'Form reset.');
+}
+
+/* Task 25 — Output in table format */
+function t25run(){
+  const n = document.getElementById('t25name').value;
+  const c = document.getElementById('t25city').value;
+  const co = document.getElementById('t25course').value;
+  document.getElementById('t25out').innerHTML =
+    '<table><tr><th>Field</th><th>Value</th></tr>' +
+    '<tr><td>Name</td><td>' + n + '</td></tr>' +
+    '<tr><td>City</td><td>' + c + '</td></tr>' +
+    '<tr><td>Course</td><td>' + co + '</td></tr></table>';
+}
+
+/* Task 26 — Clear output on reset */
+function t26show(){
+  show('t26out', 'You typed: ' + document.getElementById('t26in').value);
+}
+function t26reset(){
+  document.getElementById('t26in').value = '';
+  document.getElementById('t26out').textContent = '';   // output cleared
+}
+
+/* Task 27 & 28 — Person object + update age */
+let person = { name: "Ayush", age: 22, gender: "Male" };
+function t27run(){
+  const newAge = Number(document.getElementById('t27in').value);
+  person.age = newAge;
+  show('t27out', 'Age updated. Person is now: ' + JSON.stringify(person));
+}
+function t28run(){
+  show('t28out',
+    'Person object:\n' +
+    'Name   : ' + person.name + '\n' +
+    'Age    : ' + person.age + '\n' +
+    'Gender : ' + person.gender);
+}
+
+/* Task 29 — Countdown timer Start/Pause/Reset */
+let t29timer = null, t29count = 30;
+function t29render(){ document.getElementById('t29out').textContent = t29count; }
+function t29start(){
+  if(t29timer) return;                       // already running
+  if(t29count <= 0) t29count = Number(document.getElementById('t29in').value) || 30;
+  t29timer = setInterval(() => {
+    t29count--;
+    t29render();
+    if(t29count <= 0){ clearInterval(t29timer); t29timer = null; document.getElementById('t29out').textContent = "Time's up!"; }
+  }, 1000);
+}
+function t29pause(){ clearInterval(t29timer); t29timer = null; }
+function t29reset(){
+  clearInterval(t29timer); t29timer = null;
+  t29count = Number(document.getElementById('t29in').value) || 30;
+  t29render();
+}
+
+/* Task 30 — Hover event */
+function t30over(){ document.getElementById('t30out').textContent = 'Mouse IS over the button — style changed!'; }
+function t30out(){ document.getElementById('t30out').textContent = 'Mouse is NOT over the button.'; }
+</script>
+</body>
+</html>
